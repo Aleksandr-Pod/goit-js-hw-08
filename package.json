@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "author": "Alexander Podmazko <stdfire@gmail.com>",
-  "license": "ISC",
+  "license": "",
   "bugs": {
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
@@ -24,5 +24,8 @@
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "simplelightbox": "^2.10.1"
   }
 }

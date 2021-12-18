@@ -8,6 +8,8 @@ import { galleryItems } from './gallery-items';
 
 console.log(galleryItems);
 console.log("HELLO");
+
+
 console.log(SimpleLightbox);
 
 const gallery = galleryItems.map(({ preview, original, description }) => {

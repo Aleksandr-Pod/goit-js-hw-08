@@ -9,7 +9,8 @@ console.log(JSON.parse(localStorage.getItem("feedback-form-state")));
 // Если данные уже вводились ранее
 if (localStorage.getItem("feedback-form-state") !== null) {
     const { email = "", message = "" } = JSON.parse(localStorage.getItem("feedback-form-state"));
-
+    formData.email = email;
+    formData.message = message;
     console.log("Проверили, ФОРМА ИМЕЕТСЯ");
     formText.value = message;
     formEmail.value = email;

@@ -1,11 +1,14 @@
 import Throttle from 'lodash.throttle';
-const formData = {};
+const formData = {
+    email: "",
+    mesasge: ""
+};
 const formEmail = document.querySelector(".feedback-form input");
 const formText = document.querySelector(".feedback-form textarea");
 const form = document.querySelector(".feedback-form");
 
 // Если данные уже вводились ранее
-if (localStorage.getItem("feedback-form-state") !== null) {
+if (localStorage.getItem("feedback-form-state")) {
     //            Проверили, ФОРМА ИМЕЕТСЯ
     const { email = "", message = "" } = JSON.parse(localStorage.getItem("feedback-form-state"));
     formData.email = email;
@@ -32,11 +35,10 @@ function onInput(evt) {
 function onSubmit(evt) {
     evt.preventDefault();
     localStorage.removeItem("feedback-form-state");
-    form.removeEventListener('submit', onSubmit);
-    form.removeEventListener('input', Throttle(onInput, 500));
-
-    formText.value = "";
-    formEmail.value = "";
-
+    // form.removeEventListener('submit', onSubmit);
+    // form.removeEventListener('input', Throttle(onInput, 500));
     console.log(formData);
+    formData.email = "";
+    formData.message = "";
+    evt.currentTarget.reset(); // Очищает текущее поле
 }

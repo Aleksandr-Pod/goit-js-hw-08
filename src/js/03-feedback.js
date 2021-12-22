@@ -4,14 +4,12 @@ const formEmail = document.querySelector(".feedback-form input");
 const formText = document.querySelector(".feedback-form textarea");
 const form = document.querySelector(".feedback-form");
 
-console.log(JSON.parse(localStorage.getItem("feedback-form-state")));
-
 // Если данные уже вводились ранее
 if (localStorage.getItem("feedback-form-state") !== null) {
+    //            Проверили, ФОРМА ИМЕЕТСЯ
     const { email = "", message = "" } = JSON.parse(localStorage.getItem("feedback-form-state"));
     formData.email = email;
     formData.message = message;
-    console.log("Проверили, ФОРМА ИМЕЕТСЯ");
     formText.value = message;
     formEmail.value = email;
 }
@@ -28,8 +26,6 @@ form.addEventListener('submit', onSubmit);
 // }
 function onInput(evt) {
     formData[evt.target.name] = evt.target.value;
-    console.log(formData);
-    
     localStorage.setItem("feedback-form-state", JSON.stringify(formData));
 }
 
@@ -42,7 +38,5 @@ function onSubmit(evt) {
     formText.value = "";
     formEmail.value = "";
 
-    console.log("Данные внесены:");
-    console.log(`email: ${formData.email}`);
-    console.log(`message: ${formData.message}`);
+    console.log(formData);
 }

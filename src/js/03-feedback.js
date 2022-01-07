@@ -9,7 +9,6 @@ const form = document.querySelector(".feedback-form");
 
 // Если данные уже вводились ранее
 if (localStorage.getItem("feedback-form-state")) {
-    //            Проверили, ФОРМА ИМЕЕТСЯ
     const { email = "", message = "" } = JSON.parse(localStorage.getItem("feedback-form-state"));
     formData.email = email;
     formData.message = message;
@@ -33,8 +32,7 @@ function onInput(evt) {
 function onSubmit(evt) {
     evt.preventDefault();
     localStorage.removeItem("feedback-form-state");
-    // form.removeEventListener('submit', onSubmit);
-    // form.removeEventListener('input', Throttle(onInput, 500));
+
     console.log(formData);
     formData.email = "";
     formData.message = "";
